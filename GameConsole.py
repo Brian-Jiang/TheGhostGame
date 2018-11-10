@@ -16,12 +16,13 @@ if __name__ == '__main__':
             game.guess_char(guess)
             if len(game.word) >= 4:
                 game.check_complete()
-            if ai.challenge(game.word) and len(game.word) >= 4:
-                print('AI challenge')
-                game.challenge()
             else:
-                print('AI not challenge')
-                game.proceed()
+                if ai.challenge(game.word) and len(game.word) >= 4:
+                    print('AI challenge')
+                    game.challenge()
+                else:
+                    print('AI not challenge')
+                    game.proceed()
         elif game.turn == 1:
             print('AI\'s turn')
             guess = ai.return_word(game.word)
@@ -29,11 +30,12 @@ if __name__ == '__main__':
             game.guess_char(guess)
             if len(game.word) >= 4:
                 game.check_complete()
-            if len(game.word) >= 4:
-                user_c = input("challenge or not ?  ")  # 'y' or 'n'
-                if user_c == "y":
-                    game.challenge()
+            else:
+                if len(game.word) >= 4:
+                    user_c = input("challenge or not ?  ")  # 'y' or 'n'
+                    if user_c == "y":
+                        game.challenge()
+                    else:
+                        game.proceed()
                 else:
                     game.proceed()
-            else:
-                game.proceed()
