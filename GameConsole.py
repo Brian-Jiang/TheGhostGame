@@ -4,15 +4,6 @@ from _Helper import *
 
 alpha = 'qazwsxedcrfvtgbyhnujmikolp'
 
-def main():
-
-
-    while (input() =='continue'):
-        game = GhostGame()
-
-
-
-
 
 if __name__ == '__main__':
     word_bank = get_word_bank()
@@ -23,6 +14,7 @@ if __name__ == '__main__':
         if game.turn == 0:
             guess = input("guess a character: ")[0]
             game.guess_char(guess)
+            game.check_complete()
             if ai.challenge(game.word) and len(game.word) >= 4:
                 print('AI challenge')
                 game.challenge()
@@ -34,6 +26,7 @@ if __name__ == '__main__':
             guess = ai.return_word(game.word)
             print('AI guess', guess)
             game.guess_char(guess)
+            game.check_complete()
             if len(game.word) >= 4:
                 user_c = input("challenge or not ?  ")  # 'y' or 'n'
                 if user_c == "y":
