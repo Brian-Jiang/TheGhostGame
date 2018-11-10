@@ -15,9 +15,9 @@ class AI:
             self.wmode = 0
 
         
-    def challenge(self):
+    def challenge(self, word):
         challenge_det = random.randrange(0,100)
-        if challenge_det >=0 and challenge_det < self.cmode:
+        if challenge_det < self.cmode and len(word)>=4:
             return True
         else:
             return False
@@ -27,8 +27,11 @@ class AI:
         if w_det < self.wmode:
             return random.choice(self.aphebet) #xiaxuan
         else:
-            temp_set = find_prefix(word, self.word_bank)
-            return temp_set.pop()[len(word)]
+            try:
+                temp_set = find_prefix(word, self.word_bank)
+                return temp_set.pop()[len(word)]
+            except KeyError:
+                return random.choice(self.aphebet)
                 
 
 

@@ -2,7 +2,7 @@ from _Helper import *
 
 class GhostGame:
     def __init__(self, word_bank: set):
-        self.score = (0, 0)  # human : computer
+        self.score = [0, 0]  # human : computer
         self.word = ''
         self.turn = 0  # 0: human   1: computer
         self.words = word_bank
@@ -23,6 +23,7 @@ class GhostGame:
 
     def end_round(self, winner: 'int, 0 or 1'):
         self.score[winner] += 1
+        print('end round, score is', self.score)
         if self.score[winner] >= 5:
             self.end_game(winner)
         else:
@@ -33,7 +34,8 @@ class GhostGame:
         pass
 
     def _clear_board(self):
-        self.word = []
+        self.word = ''
+        self.turn = 0
 
     def _check_prefix(self, prefix):
         return find_prefix(prefix, self.words)
