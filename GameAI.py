@@ -1,7 +1,7 @@
 import random
 from _Helper import *
 class AI:
-    def __init__(self, mode, aphebet:list, word_bank:set): #easy:0, medium: 1, hard: 2
+    def __init__(self, mode, aphebet:'iterable', word_bank:set): #easy:0, medium: 1, hard: 2
         self.aphebet = aphebet
         self.word_bank = word_bank
         if mode == 0:
