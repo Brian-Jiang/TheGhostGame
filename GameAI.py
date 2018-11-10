@@ -15,7 +15,7 @@ class AI:
             self.wmode = 0
 
         
-    def _challenge(self):
+    def challenge(self):
         challenge_det = random.randrange(0,100)
         if challenge_det >=0 and challenge_det < self.cmode:
             return True
@@ -23,15 +23,12 @@ class AI:
             return False
 
     def return_word(self, word): #1:"word_challenge" 2:"newWord"
-        if self._challenge():
-            return "_"
+        w_det = random.randrange(0,100)
+        if w_det < self.wmode:
+            return random.choice(self.aphebet) #xiaxuan
         else:
-            w_det = random.randrange(0,100)
-            if w_det < self.wmode:
-                return random.choice(self.aphebet) #xiaxuan
-            else:
-                temp_set = find_prefix(word, self.word_bank)
-                return temp_set.pop()[len(word)]
+            temp_set = find_prefix(word, self.word_bank)
+            return temp_set.pop()[len(word)]
                 
 
 
