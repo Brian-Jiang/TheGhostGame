@@ -1,10 +1,11 @@
 from _Helper import *
+from random import randrange
 
 class GhostGame:
     def __init__(self, word_bank: set):
         self.score = [0, 0]  # human : computer
         self.word = ''
-        self.turn = 0  # 0: human   1: computer
+        self.turn = randrange(0,2)  # 0: human   1: computer
         self.words = word_bank
 
     def guess_char(self, char):
@@ -29,17 +30,22 @@ class GhostGame:
         else:
             self._clear_board()
 
-    def check_if_complete_word(self):
-        result = check_complete_word(self.word, self.words)
-        return 'complete' if result == 1 else 'not complete'
+    def check_complete(self):
+        if check_complete_word(self.word, self.words):
+            self.end_round(0 if self.turn == 1 else 1)
+
+    # def check_if_complete_word(self):
+    #     result = check_complete_word(self.word, self.words)
+    #     return True if result == 1 else False
 
     def end_game(self, winner: 'int, 0 or 1'):
         self.turn = -1
+        print('winner:', winner)
         pass
 
     def _clear_board(self):
         self.word = ''
-        self.turn = 0
+        self.turn = randrange(0,2)
 
     def _check_prefix(self, prefix):
         return find_prefix(prefix, self.words)

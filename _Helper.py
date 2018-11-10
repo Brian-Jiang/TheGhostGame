@@ -18,8 +18,9 @@ def get_word_bank():
 
 def check_complete_word(word,words):
     for each in words:
-        if word == each:
-            return 1
+        if word == each[:-1]:
+            return True
+    return False
 
 if __name__ == '__main__':
     pass
