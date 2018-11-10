@@ -10,4 +10,7 @@ def main():
 
 
 if __name__ == '__main__':
-    pass
+    game = GhostGame()
+    while game.turn != -1:
+        game.guess_char('a')
+        game.challenge()

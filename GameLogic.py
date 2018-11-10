@@ -1,8 +1,11 @@
+from _Helper import *
+
 class GhostGame:
-    def __init__(self):
+    def __init__(self, word_bank: set):
         self.score = (0, 0)  # human : computer
         self.word = ''
         self.turn = 0  # 0: human   1: computer
+        self.words = word_bank
 
     def guess_char(self, char):
         self.word += char
@@ -33,4 +36,4 @@ class GhostGame:
         self.word = []
 
     def _check_prefix(self, prefix):
-        pass
+        return find_prefix(prefix, self.words)
