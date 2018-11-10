@@ -1,11 +1,13 @@
 class GhostGame:
     def __init__(self):
         self.score = (0, 0)  # human : computer
-        self.word = []
+        self.word = ''
         self.chance = 3
         self.turn = 0  # 0: human   1: computer
 
-
+    def guess_char(self, char):
+        if self._check_prefix(self.word + char):
+            self.word +=
 
     def end_round(self, winner: 'int, 0 or 1'):
         self.score[winner] += 1
@@ -20,3 +22,6 @@ class GhostGame:
     def _clear_board(self):
         self.word = []
         self.chance = 3
+
+    def _check_prefix(self, prefix):
+        pass
