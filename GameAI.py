@@ -1,13 +1,13 @@
 import random
 from _Helper import *
 class AI:
-    def __init__(self, mode:num, aphebet:list, word_bank:set): #easy:0, medium: 1, hard: 2
+    def __init__(self, mode, aphebet:list, word_bank:set): #easy:0, medium: 1, hard: 2
         self.aphebet = aphebet
         self.word_bank = word_bank
         if mode == 0:
             self.cmode = 10
             self.wmode = 50 #xiaxie
-        else if mode == 1:
+        elif mode == 1:
             self.cmode = 40
             self.wmode = 10 #xiaxie
         else:
@@ -17,7 +17,7 @@ class AI:
         
     def _challenge(self):
         challenge_det = random.randrange(0,100)
-        if challenge_det >=0 and challenge_det < self.mode:
+        if challenge_det >=0 and challenge_det < self.cmode:
             return True
         else:
             return False
