@@ -29,6 +29,10 @@ class GhostGame:
         else:
             self._clear_board()
 
+    def check_if_complete_word(self):
+        result = check_complete_word(self.word, self.words)
+        return 'complete' if result == 1 else 'not complete'
+
     def end_game(self, winner: 'int, 0 or 1'):
         self.turn = -1
         pass
@@ -39,3 +43,4 @@ class GhostGame:
 
     def _check_prefix(self, prefix):
         return find_prefix(prefix, self.words)
+

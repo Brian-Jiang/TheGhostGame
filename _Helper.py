@@ -16,6 +16,11 @@ def get_word_bank():
     return words
 
 
+def check_complete_word(word,words):
+    for each in words:
+        if word == each[:-1]:
+            return 1
+
 if __name__ == '__main__':
     pass
     # reader = open('dictionary.txt', 'r')
