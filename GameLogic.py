@@ -7,7 +7,22 @@ class GhostGame:
 
     def guess_char(self, char):
         if self._check_prefix(self.word + char):
-            self.word +=
+            self.word += char
+            self.turn = 0 if self.turn == 1 else 1
+        else:
+            if self.turn == 0:
+                self.chance -= 1
+                if self.chance == 0:
+                    self.end_round(0 if self.turn == 1 else 1)
+            else:
+                self.end_round()
+
+    def challenge(self):
+        if self._check_prefix(self.word):
+            self.end_round(self.turn)
+        else:
+            self.end_round(0 if self.turn == 1 else 1)
+
 
     def end_round(self, winner: 'int, 0 or 1'):
         self.score[winner] += 1
