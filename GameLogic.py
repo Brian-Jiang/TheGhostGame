@@ -31,7 +31,7 @@ class GhostGame:
 
     def check_if_complete_word(self):
         result = check_complete_word(self.word, self.words)
-        return 'complete' if result == 1 else 'not complete'
+        return True if result == 1 else False
 
     def end_game(self, winner: 'int, 0 or 1'):
         self.turn = -1
