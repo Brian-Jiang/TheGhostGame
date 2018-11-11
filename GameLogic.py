@@ -24,7 +24,9 @@ class GhostGame:
 
     def end_round(self, winner: 'int, 0 or 1'):
         self.score[winner] += 1
-        print('end round, score is', self.score)
+        if winner == 0: print('You ', end='')
+        else: print('AI ', end='')
+        print('won, score is\tyou', self.score[0], self.score[1], 'AI')
         if self.score[winner] >= 5:
             self.end_game(winner)
         else:
@@ -40,8 +42,10 @@ class GhostGame:
 
     def end_game(self, winner: 'int, 0 or 1'):
         self.turn = -1
-        print('winner:', winner)
-        pass
+        print('Game end, the winner is', end='')
+        if winner == 0: print(' you!!')
+        else: print(' AI!')
+        print('\nThank you for Playing the Ghost Game.')
 
     def _clear_board(self):
         self.word = ''
