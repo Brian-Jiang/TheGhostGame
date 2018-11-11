@@ -154,7 +154,7 @@ class GameBoard:
             master = self._dialog
         )
         score_board.grid(
-            row = 1 , column = 1, padx = 20, pady = 20,
+            row = 2 , column = 0, padx = 20, pady = 20,
             sticky = tkinter.E+tkinter.S
         )
         score_H = tkinter.Label(
