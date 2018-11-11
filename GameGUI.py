@@ -10,11 +10,38 @@ class GameBoard:
             font = DEFAULT_FONT
         )
         self._title.grid(
-            row = 0, column = 0, columnspan = 2, padx = 20, pady = 20,
+            row = 0, column = 1, columnspan = 3, padx = 20, pady = 20,
             sticky = tkinter.N
         )
 
+        self._button_frame = tkinter.Frame(master = self._dialog)
+        self._button_frame.grid(
+            row = 1, column = 1, padx = 40, pady = 40
+        )
+        self._easyButton = tkinter.Button(
+            master = self._button_frame, text = "EASY",
+            font = DEFAULT_FONT
+        )
+        self._easyButton.grid(
+            row = 0, column = 0, padx = 10, pady = 10
+        )
+        self._middleButton = tkinter.Button(
+            master = self._button_frame, text = "MIDDLE",
+            font = DEFAULT_FONT
+        )
+        self._middleButton.grid(
+            row = 1, column = 0, padx = 10, pady = 10
+        )
+        self._hardButton = tkinter.Button(
+            master = self._button_frame, text = "HARD",
+            font = DEFAULT_FONT
+        )
+        self._hardButton.grid(
+            row = 2, column = 0, padx = 10, pady = 10
+        )
 
+        self._dialog.rowconfigure(5, weight = 1)
+        self._dialog.columnconfigure(1, weight = 1)
 
 if __name__ == '__main__':
     GameBoard()
