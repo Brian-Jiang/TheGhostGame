@@ -139,17 +139,17 @@ class GameBoard:
             row = 1, column = 0, padx = 5, pady = 5    
         )
 
-        canvas = tkinter.Canvas(
+        self.canvas = tkinter.Canvas(
             master = self._dialog, width = 500, height = 200,
             background = 'orange',
         )
     
-        canvas.grid(
+        self.canvas.grid(
             row = 1 , column = 0,
             sticky = tkinter.W + tkinter.E + tkinter.N + tkinter.S
 
         )
-        canvas.bind("<Configure>", self._on_canvas_revized)
+        self.canvas.bind("<Configure>", self._on_canvas_revized)
         score_board = tkinter.Frame(
             master = self._dialog, background = '#F16F29'
         )
@@ -188,7 +188,7 @@ class GameBoard:
         pass
 
     def get_key(self, event):
-        print(event.char)
+        self.canvas.text = self.canvas.create_text(20, 30, text= event.char)
 
 if __name__ == '__main__':
     board = GameBoard()
