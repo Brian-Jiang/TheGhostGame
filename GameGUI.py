@@ -118,7 +118,7 @@ class GameBoard:
     def get_key(self, event):
         self.canvas.delete(tkinter.ALL)
         self.vocb += event.char
-        self.canvas.text = self.canvas.create_text(20, 30, text= self.vocb)
+        self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
         if (check_complete_word(self.vocb, self.control.word_bank) and find_prefix(self.vocb, self.control.word_bank)) or not (find_prefix(self.vocb, self.control.word_bank)):
             self.control.AIScore += 1
             self.g_score.set(f'Ghost {self.control.AIScore}')
