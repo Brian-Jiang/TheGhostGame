@@ -45,7 +45,8 @@ class GameBoard:
         self._dialog.columnconfigure(1, weight = 1)
 
     def _easyCommand(self):
-        pass
+        self._dialog.destroy()
+        self._dialog = tkinter.Tk()
 
 if __name__ == '__main__':
     GameBoard()
