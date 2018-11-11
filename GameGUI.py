@@ -150,7 +150,6 @@ class GameBoard:
             self.vocb += result
             self.canvas.delete(tkinter.ALL)
             self.canvas.text = self.canvas.create_text(250, 70, font=('Herculanum', 40), anchor='w', text= self.vocb)
-            sleep(1)
             if not find_prefix(self.vocb, self.control.word_bank):
                 self.control.UserScore += 1
                 self.h_score.set(f'User {self.control.UserScore}')
