@@ -12,10 +12,10 @@ class GameBoard:
         self._dialog.title("Ghost Game Menu")
         self._dialog.geometry("700x523")
         # image = PhotoImage(file='Hallowen-Background.png')
-        image = Image.open("Hallowen-Background.png")
-        image = ImageTk.PhotoImage(image)
-        label = Label(self._dialog, image=image)
-        label.image = image
+        self.image = Image.open("Hallowen-Background.png")
+        self.image = ImageTk.PhotoImage(self.image)
+        label = Label(self._dialog, image=self.image)
+        label.image = self.image
         label.pack()
         label.place(x=0, y=0, relwidth=1, relheight=1)
         self._title = tkinter.Label(
@@ -64,18 +64,44 @@ class GameBoard:
         self._dialog = tkinter.Tk()
         self._dialog.title("Ghost Game Easy Mode")
         self._dialog.geometry("700x523")
+
+        self.image = Image.open("Hallowen-Background.png")
+        self.image = ImageTk.PhotoImage(self.image)
+        label = Label(self._dialog, image=self.image)
+        label.image = self.image
+        label.pack()
+        label.place(x=0, y=0, relwidth=1, relheight=1)
+
         self.startGame(0)
 
     def _mediumCommand(self):
         self._dialog.destroy()
         self._dialog = tkinter.Tk()
         self._dialog.title("Ghost Game Medium Mode")
+        self._dialog.geometry("700x523")
+
+        self.image = Image.open("Hallowen-Background.png")
+        self.image = ImageTk.PhotoImage(self.image)
+        label = Label(self._dialog, image=self.image)
+        label.image = self.image
+        label.pack()
+        label.place(x=0, y=0, relwidth=1, relheight=1)
+
         self.startGame(1)
 
     def _hardCommand(self):
         self._dialog.destroy()
         self._dialog = tkinter.Tk()
         self._dialog.title("Ghost Game Hard Mode")
+        self._dialog.geometry("700x523")
+
+        self.image = Image.open("Hallowen-Background.png")
+        self.image = ImageTk.PhotoImage(self.image)
+        label = Label(self._dialog, image=self.image)
+        label.image = self.image
+        label.pack()
+        label.place(x=0, y=0, relwidth=1, relheight=1)
+
         self.startGame(2)
 
     def startGame(self, mode:int): #E0, M1, H2
