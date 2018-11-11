@@ -133,7 +133,7 @@ class GameBoard:
             sleep(2)
             if check_complete_word(self.vocb, self.control.word_bank):
                 self.control.UserScore += 1
-                self.h_score.set(f'Ghost {self.control.UserScore}')
+                self.h_score.set(f'User {self.control.UserScore}')
                 self.vocb = ''
 
 
