@@ -155,7 +155,7 @@ class GameBoard:
         )
         score_board.grid(
             row = 0 , column = 0, padx = 20, pady = 20,
-            sticky = tkinter.E+tkinter.S
+            sticky = tkinter.W+tkinter.N
         )
         score_H = tkinter.Label(
             master = score_board, text = "Human 0",
