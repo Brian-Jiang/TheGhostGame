@@ -121,4 +121,5 @@ class GameBoard:
         self.__init__()
 
 if __name__ == '__main__':
-    GameBoard()
+    board = GameBoard()
+    board._dialog.mainloop()
