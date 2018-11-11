@@ -1,4 +1,5 @@
 import tkinter
+from tkinter import *
 from PIL import Image, ImageTk
 from controller import *
 DEFAULT_FONT = ('Herculanum', 24)
