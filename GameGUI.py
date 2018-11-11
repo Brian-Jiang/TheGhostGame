@@ -118,7 +118,7 @@ class GameBoard:
     def get_key(self, event):
         self.canvas.delete(tkinter.ALL)
         self.vocb += event.char
-        self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
+        self.canvas.text = self.canvas.create_text(250, 70, font=('Herculanum', 40), anchor='w', text= self.vocb)
         if not find_prefix(self.vocb, self.control.word_bank):
             self.control.AIScore += 1
             self.g_score.set(f'Ghost {self.control.AIScore}')
@@ -129,7 +129,7 @@ class GameBoard:
             self.g_score.set(f'Ghost {self.control.AIScore}')
             self.vocb = ''
             return
-        self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
+        self.canvas.text = self.canvas.create_text(250, 70, font=('Herculanum', 40), anchor='w', text= self.vocb)
 
         result = self.control.turn(self.vocb)
         if result == '_':
@@ -140,7 +140,7 @@ class GameBoard:
         else:
             self.vocb += result
             self.canvas.delete(tkinter.ALL)
-            self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
+            self.canvas.text = self.canvas.create_text(250, 70, font=('Herculanum', 40), anchor='w', text= self.vocb)
             sleep(1)
             if not find_prefix(self.vocb, self.control.word_bank):
                 self.control.UserScore += 1
