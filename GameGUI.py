@@ -1,11 +1,23 @@
 import tkinter
+from tkinter import *
+from PIL import Image, ImageTk
+
 DEFAULT_FONT = ('Herculanum', 24)
 
 
 class GameBoard:
     def __init__(self):
+
         self._dialog = tkinter.Tk()
         self._dialog.title("Ghost Game Menu")
+        self._dialog.geometry("700x523")
+        # image = PhotoImage(file='Hallowen-Background.png')
+        image = Image.open("Hallowen-Background.png")
+        image = ImageTk.PhotoImage(image)
+        label = Label(self._dialog, image=image)
+        label.image = image
+        label.pack()
+        label.place(x=0, y=0, relwidth=1, relheight=1)
         self._title = tkinter.Label(
             master = self._dialog, text = "Ghost Game",
             font =  ('Old Europe', 48)
