@@ -1,13 +1,13 @@
 import tkinter
 
-DEFAULT_FONT = ('Old Europe', 24)
+DEFAULT_FONT = ('Herculanum', 24)
 
 class GameBoard:
     def __init__(self):
         self._dialog = tkinter.Tk()
         self._title = tkinter.Label(
             master = self._dialog, text = "Ghost Game",
-            font = DEFAULT_FONT
+            font =  ('Old Europe', 48)
         )
         self._title.grid(
             row = 0, column = 1, columnspan = 3, padx = 20, pady = 20,
@@ -20,7 +20,7 @@ class GameBoard:
         )
         self._easyButton = tkinter.Button(
             master = self._button_frame, text = "EASY",
-            font = DEFAULT_FONT
+            font = DEFAULT_FONT,
             command = self._easyCommand
         )
         self._easyButton.grid(
@@ -44,8 +44,8 @@ class GameBoard:
         self._dialog.rowconfigure(5, weight = 1)
         self._dialog.columnconfigure(1, weight = 1)
 
-    def _easyCommand():
-
+    def _easyCommand(self):
+        pass
 
 if __name__ == '__main__':
     GameBoard()
