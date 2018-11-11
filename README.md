@@ -1,4 +1,7 @@
 # TheGhostGame
+Team: SkySchocker
+Author: Jiang Xiao, He Zeyu, Wu Yilei
+
 1.Three fonts are needed to be installed, which are 'Citadel Script',''Herculanum',
 and 'Old Europe'. User can click on the ttf file in our project and choose the 
 'install' button on the right down corner. 
