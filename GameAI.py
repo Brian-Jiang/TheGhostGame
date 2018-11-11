@@ -10,8 +10,17 @@ class AI:
         elif mode == 1:
             self.cmode = 40
             self.wmode = 10 #xiaxie
-        else:
+        elif mode == 2:
             self.cmode = 80
+            self.wmode = 0
+        elif mode == 3:
+            self.cmode = 0
+            self.wmode = 50
+        elif mode == 4:
+            self.cmode = 0
+            self.wmode = 10 #xiaxie
+        else:
+            self.cmode = 0
             self.wmode = 0
 
         
