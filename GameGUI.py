@@ -107,15 +107,15 @@ class GameBoard:
     def startGame(self, mode:int): #E0, M1, H2
         self._title = tkinter.Label(
             master = self._dialog, text = "Ghost Game",
-            font =  ('Old Europe', 48)
+            font =  ('Old Europe', 48), background = '#F06824'
         )
         
         self._title.grid(
-            row = 0, column = 1, columnspan = 3, padx = 20, pady = 20,
+            row = 0, column = 0, columnspan = 3, padx = 20, pady = 20,
             sticky = tkinter.N
         )
         
-        button_frame = tkinter.Frame(master = self._dialog)
+        button_frame = tkinter.Frame(master = self._dialog, background = '#F06824')
         button_frame.grid(
             row = 0, column = 2, padx = 20, pady = 20,
             sticky = tkinter.E+tkinter.N
@@ -150,8 +150,8 @@ class GameBoard:
 
         )
         canvas.bind("<Configure>", self._on_canvas_revized)
-        score_board = tkinter.LabelFrame(
-            master = self._dialog
+        score_board = tkinter.Frame(
+            master = self._dialog, background = '#F16F29'
         )
         score_board.grid(
             row = 0 , column = 0, padx = 20, pady = 20,
@@ -159,14 +159,14 @@ class GameBoard:
         )
         score_H = tkinter.Label(
             master = score_board, text = "Human 0",
-            font = DEFAULT_FONT
+            font = DEFAULT_FONT, background = '#F16F29',
             )
         score_H.grid(
             row = 0, column = 0, columnspan = 3, padx = 20, pady = 20,
         )
         score_G = tkinter.Label(
             master = score_board, text = "Ghost 0",
-            font = DEFAULT_FONT
+            font = DEFAULT_FONT, background = '#F16F29'
             )
         score_G.grid(
             row = 1, column = 0, columnspan = 3, padx = 20, pady = 20,
