@@ -141,7 +141,7 @@ class GameBoard:
 
         canvas = tkinter.Canvas(
             master = self._dialog, width = 500, height = 500,
-            background = 'grey',
+            background = 'orange',
         )
         canvas.grid(
             row = 1 , column = 0,
