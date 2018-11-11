@@ -15,6 +15,7 @@ class GameBoard:
         self._dialog = tkinter.Tk()
         self._dialog.title("Ghost Game Menu")
         self._dialog.geometry("700x523")
+        self._dialog.configure(background = '#F16F29')
         # image = PhotoImage(file='Hallowen-Background.png')
         self.image = Image.open("Hallowen-Background.png")
         self.image = ImageTk.PhotoImage(self.image)
@@ -62,6 +63,7 @@ class GameBoard:
 
         self._dialog.rowconfigure(5, weight = 1)
         self._dialog.columnconfigure(1, weight = 1)
+        self._dialog.attributes("-topmost", True)
 
     def _easyCommand(self):
         self._dialog.destroy()
@@ -136,9 +138,9 @@ class GameBoard:
             sticky = tkinter.N
         )
         
-        button_frame = tkinter.Frame(master = self._dialog, background = '#F06824')
+        button_frame = tkinter.Frame(master = self._dialog, background = '#F2702C')
         button_frame.grid(
-            row = 0, column = 2, padx = 20, pady = 20,
+            row = 0, column = 2, padx = 10, pady = 20,
             sticky = tkinter.E+tkinter.N
         )
 
@@ -192,6 +194,16 @@ class GameBoard:
         score_G.grid(
             row = 1, column = 0, columnspan = 3, padx = 20, pady = 20,
         )
+        self.g_image = Image.open("ghost_picture.jpg")
+        self.g_image = ImageTk.PhotoImage(self.g_image)
+        ghost_l = Label(master = button_frame, image=self.g_image)
+        # ghost_l.image = self.g_image
+        # ghost_l.pack()
+        ghost_l.grid(
+            row=2, column=0, columnspan=3, padx=20, pady=20,
+        )
+        # ghost_l.place(x=0, y=0, relwidth=1, relheight=1)
+
 
         self._dialog.bind('<Key>', self.get_key)
         
