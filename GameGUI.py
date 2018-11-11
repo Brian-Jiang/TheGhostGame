@@ -1,6 +1,6 @@
 import tkinter
 
-DEFAULT_FONT = ('Arial', 24)
+DEFAULT_FONT = ('Old Europe', 24)
 
 class GameBoard:
     def __init__(self):
