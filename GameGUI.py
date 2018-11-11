@@ -148,15 +148,29 @@ class GameBoard:
             sticky = tkinter.W + tkinter.E + tkinter.N + tkinter.S
 
         )
-
-        score_board = tkinter.Label(
-            master = self._dialog, text = "Human 0-0 Ghost",
+        score_board = tkinter.LabelFrame(
+            master = self._dialog
+        )
+        score_board.grid(
+            row = 1 , column = 1, padx = 20, pady = 20,
+            sticky = tkinter.E+tkinter.S
+        )
+        score_H = tkinter.Label(
+            master = score_board, text = "Human 0",
             font = DEFAULT_FONT
             )
-        score_board.grid(
-            row = 1, column = 1, columnspan = 3, padx = 20, pady = 20,
-            sticky = tkinter.E
+        score_H.grid(
+            row = 0, column = 0, columnspan = 3, padx = 20, pady = 20,
         )
+        score_G = tkinter.Label(
+            master = score_board, text = "Ghost 0",
+            font = DEFAULT_FONT
+            )
+        score_G.grid(
+            row = 1, column = 0, columnspan = 3, padx = 20, pady = 20,
+        )
+
+
         
         
         self._dialog.rowconfigure(5, weight = 1)
