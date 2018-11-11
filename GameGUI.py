@@ -21,12 +21,13 @@ class GameBoard:
         self._easyButton = tkinter.Button(
             master = self._button_frame, text = "EASY",
             font = DEFAULT_FONT
+            command = self._easyCommand
         )
         self._easyButton.grid(
             row = 0, column = 0, padx = 10, pady = 10
         )
         self._middleButton = tkinter.Button(
-            master = self._button_frame, text = "MIDDLE",
+            master = self._button_frame, text = "MIDDIUM",
             font = DEFAULT_FONT
         )
         self._middleButton.grid(
@@ -41,7 +42,10 @@ class GameBoard:
         )
 
         self._dialog.rowconfigure(5, weight = 1)
-        self._dialog.columnconfigure(5, weight = 1)
+        self._dialog.columnconfigure(1, weight = 1)
+
+    def _easyCommand():
+
 
 if __name__ == '__main__':
     GameBoard()
