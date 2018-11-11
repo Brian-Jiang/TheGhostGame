@@ -123,7 +123,7 @@ class GameBoard:
         result = self.control.turn(self.vocb)
         if result == '_':
             self.control.AIScore += 1
-            self.score_G(text = f"Ghost {self.control.AIScore}" )
+            self.g_score.set(f'Ghost {self.control.AIScore}')
             self.vocb = ''
             return
         else:
@@ -133,12 +133,14 @@ class GameBoard:
             sleep(2)
             if check_complete_word(self.vocb, self.control.word_bank):
                 self.control.UserScore += 1
-                self.score_H(text = f"Human {self.control.UserScore}" )
+                self.h_score.set(f'Ghost {self.control.UserScore}')
                 self.vocb = ''
 
 
     def startGame(self, mode:int): #E3, M4, H5
         self.control = controller(mode)
+        self.g_score.set(f'Ghost {self.control.AIScore}')
+        self.h_score.set(f'Ghost {self.control.UserScore}')
         self.vocb = ''
         self._title = tkinter.Label(
             master = self._dialog, text = "Ghost Game",
@@ -192,18 +194,18 @@ class GameBoard:
             row = 0 , column = 0, padx = 20, pady = 20,
             sticky = tkinter.W+tkinter.N
         )
-        self.score_H = tkinter.Label(
-            master = score_board, text = "Human 0",
+        score_H = tkinter.Label(
+            master = score_board, textvariable= self.h_score,
             font = DEFAULT_FONT, background = '#F16F29',
             )
-        self.score_H.grid(
+        score_H.grid(
             row = 0, column = 0, columnspan = 3, padx = 20, pady = 20,
         )
-        self.score_G = tkinter.Label(
-            master = score_board, text = "Ghost 0",
+        score_G = tkinter.Label(
+            master = score_board, textvariable = self.g_score,
             font = DEFAULT_FONT, background = '#F16F29'
             )
-        self.score_G.grid(
+        score_G.grid(
             row = 1, column = 0, columnspan = 3, padx = 20, pady = 20,
         )
         self.g_image = Image.open("ghost_picture.jpg")
