@@ -138,7 +138,7 @@ class GameBoard:
             self.vocb = ''
             return
         else:
-            self.vocb+=result
+            self.vocb += result
             self.canvas.delete(tkinter.ALL)
             self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
             sleep(1)
