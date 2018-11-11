@@ -172,7 +172,7 @@ class GameBoard:
             row = 1, column = 0, columnspan = 3, padx = 20, pady = 20,
         )
 
-        
+        self._dialog.bind('<Key>', self.get_key)
         
         self._dialog.rowconfigure(5, weight = 1)
         self._dialog.columnconfigure(1, weight = 1)
@@ -187,6 +187,8 @@ class GameBoard:
     def _on_canvas_revized(self, event: tkinter.Event):
         pass
 
+    def get_key(self, event):
+        print(event.char)
 
 if __name__ == '__main__':
     board = GameBoard()
