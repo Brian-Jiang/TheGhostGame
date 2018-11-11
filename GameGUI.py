@@ -1,17 +1,12 @@
 import tkinter
 from tkinter import *
 from PIL import Image, ImageTk
-from GameLogic import GhostGame
-from GameAI import AI
-from _Helper import *
+from controller import *
 DEFAULT_FONT = ('Herculanum', 24)
 
 
 class GameBoard:
     def __init__(self):
-        self.word_bank = get_word_bank()
-        self.game = GhostGame(self.word_bank)
-        self.ai = None
         self._dialog = tkinter.Tk()
         self._dialog.title("Ghost Game Menu")
         self._dialog.geometry("700x523")
@@ -78,7 +73,7 @@ class GameBoard:
         label.pack()
         label.place(x=0, y=0, relwidth=1, relheight=1)
 
-        self.startGame(0)
+        self.startGame(3)
 
     def _mediumCommand(self):
         self._dialog.destroy()
@@ -93,7 +88,7 @@ class GameBoard:
         label.pack()
         label.place(x=0, y=0, relwidth=1, relheight=1)
 
-        self.startGame(1)
+        self.startGame(4)
 
     def _hardCommand(self):
         self._dialog.destroy()
@@ -108,7 +103,7 @@ class GameBoard:
         label.pack()
         label.place(x=0, y=0, relwidth=1, relheight=1)
 
-        self.startGame(2)
+        self.startGame(5)
 
     def _exitCommand(self):
         self._dialog.destroy()
@@ -122,12 +117,23 @@ class GameBoard:
 
     def get_key(self, event):
         self.canvas.delete(tkinter.ALL)
-        
-        self.canvas.text = self.canvas.create_text(20, 30, text= event.char)
+        self.vocb += event.char
+        self.canvas.text = self.canvas.create_text(20, 30, text= self.vocb)
+
+        result = self.control.turn(self.vocb)
+        if result == '_':
+            self.control.AIScore += 1
+            self.vocb = ''
+            return
+        else:
+            self.canvas.delete(tkinter.ALL)
+            self.canvas.text = self.canvas.create_text(20, 30, text= self.vocb)
+            return event.char
 
 
-    def startGame(self, mode:int): #E0, M1, H2
-        self.ai = AI(mode,'qazwsxedcrfvtgbyhnujmikolp',self.word_bank)
+    def startGame(self, mode:int): #E3, M4, H5
+        self.control = controller(mode)
+        self.vocb = ''
         self._title = tkinter.Label(
             master = self._dialog, text = "Ghost Game",
             font =  ('Old Europe', 48), background = '#F06824'
@@ -138,9 +144,9 @@ class GameBoard:
             sticky = tkinter.N
         )
         
-        button_frame = tkinter.Frame(master = self._dialog, background = '#F2702C')
+        button_frame = tkinter.Frame(master = self._dialog, background = '#F06824')
         button_frame.grid(
-            row = 0, column = 2, padx = 10, pady = 20,
+            row = 0, column = 2, padx = 20, pady = 20,
             sticky = tkinter.E+tkinter.N
         )
 
@@ -209,6 +215,8 @@ class GameBoard:
         
         self._dialog.rowconfigure(5, weight = 1)
         self._dialog.columnconfigure(1, weight = 1)
+
+            
         
     
 if __name__ == '__main__':
