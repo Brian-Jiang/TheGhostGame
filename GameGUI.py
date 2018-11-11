@@ -142,7 +142,7 @@ class GameBoard:
         self.g_score = tkinter.StringVar()
         self.h_score = tkinter.StringVar()
         self.g_score.set(f'Ghost {self.control.AIScore}')
-        self.h_score.set(f'Ghost {self.control.UserScore}')
+        self.h_score.set(f'User {self.control.UserScore}')
         self.vocb = ''
         self._title = tkinter.Label(
             master = self._dialog, text = "Ghost Game",
