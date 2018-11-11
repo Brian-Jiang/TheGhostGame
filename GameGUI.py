@@ -188,6 +188,7 @@ class GameBoard:
         pass
 
     def get_key(self, event):
+        self.canvas.delete(tkinter.ALL)
         self.canvas.text = self.canvas.create_text(20, 30, text= event.char)
 
 if __name__ == '__main__':
