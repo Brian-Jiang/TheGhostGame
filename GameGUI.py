@@ -20,14 +20,14 @@ class GameBoard:
         label.place(x=0, y=0, relwidth=1, relheight=1)
         self._title = tkinter.Label(
             master = self._dialog, text = "Ghost Game",
-            font =  ('Old Europe', 48)
+            font =  ('Old Europe', 48), background = '#F06824'
         )
         self._title.grid(
             row = 0, column = 1, columnspan = 3, padx = 20, pady = 20,
             sticky = tkinter.N
         )
 
-        self._button_frame = tkinter.Frame(master = self._dialog)
+        self._button_frame = tkinter.Frame(master = self._dialog, background = '#F27E35')
         self._button_frame.grid(
             row = 1, column = 1, padx = 40, pady = 40
         )
