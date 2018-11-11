@@ -9,10 +9,13 @@ alpha = 'qazwsxedcrfvtgbyhnujmikolp'
 
 class controller:
 
-    def __int__(self):
+    def __int__(self, mode):
         self.word_bank = get_word_bank()
         self.game = GhostGame(self.word_bank)
-        self.ai = AI(1, alpha, self.word_bank)
+        self.ai = AI(mode, alpha, self.word_bank)
+        self.userScore = self.game.score[0]
+        self.AIScore = self.game.score[1]
+
 
 
     def func(self, word):#take a word
