@@ -184,7 +184,7 @@ class GameBoard:
         self._dialog.destroy()
         self.__init__()
 
-    def _on_canvas_revized(self):
+    def _on_canvas_revized(self, event: tkinter.Event):
         pass
 
 
