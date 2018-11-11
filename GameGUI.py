@@ -124,7 +124,7 @@ class GameBoard:
             self.g_score.set(f'Ghost {self.control.AIScore}')
             self.vocb = ''
             return
-        if check_complete_word(self.vocb, self.control.word_bank):
+        if check_complete_word(self.vocb, self.control.word_bank) and len(self.vocb) >= 4:
             self.control.AIScore += 1
             self.g_score.set(f'Ghost {self.control.AIScore}')
             self.vocb = ''
@@ -147,7 +147,7 @@ class GameBoard:
                 self.h_score.set(f'User {self.control.UserScore}')
                 self.vocb = ''
                 return
-            if check_complete_word(self.vocb, self.control.word_bank):
+            if check_complete_word(self.vocb, self.control.word_bank) and len(self.vocb) >= 4:
                 self.control.UserScore += 1
                 self.h_score.set(f'User {self.control.UserScore}')
                 self.vocb = ''
