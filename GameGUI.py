@@ -1,6 +1,6 @@
 import tkinter
 
-DEFAULT_FONT = ('Time', 24)
+DEFAULT_FONT = ('Arial', 24)
 
 class GameBoard:
     def __init__(self):
@@ -41,7 +41,7 @@ class GameBoard:
         )
 
         self._dialog.rowconfigure(5, weight = 1)
-        self._dialog.columnconfigure(1, weight = 1)
+        self._dialog.columnconfigure(5, weight = 1)
 
 if __name__ == '__main__':
     GameBoard()
