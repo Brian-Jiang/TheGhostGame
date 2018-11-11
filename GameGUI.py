@@ -147,7 +147,7 @@ class GameBoard:
                 self.h_score.set(f'User {self.control.UserScore}')
                 self.vocb = ''
                 return
-            if check_complete_word(self.vocb, self.control.word_bank) find_prefix(self.vocb, self.control.word_bank):
+            if check_complete_word(self.vocb, self.control.word_bank):
                 self.control.UserScore += 1
                 self.h_score.set(f'User {self.control.UserScore}')
                 self.vocb = ''
