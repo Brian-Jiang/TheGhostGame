@@ -118,7 +118,7 @@ class GameBoard:
     def get_key(self, event):
         self.canvas.delete(tkinter.ALL)
         self.vocb += event.char
-        self.canvas.text = self.canvas.create_text(20, 30, text= self.vocb)
+        self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
 
         result = self.control.turn(self.vocb)
         if result == '_':
@@ -129,7 +129,7 @@ class GameBoard:
         else:
             self.vocb+=result
             self.canvas.delete(tkinter.ALL)
-            self.canvas.text = self.canvas.create_text(20, 30, text= self.vocb)
+            self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
             sleep(2)
             if check_complete_word(self.vocb, self.control.word_bank):
                 self.control.UserScore += 1
