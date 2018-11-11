@@ -123,7 +123,7 @@ class GameBoard:
             self.control.AIScore += 1
             self.g_score.set(f'Ghost {self.control.AIScore}')
             self.vocb = ''
-            if self.self.control.AIScore >= 5:
+            if self.control.AIScore >= 5:
                 messagebox.showifno("Ghost Win", "Winner is the Ghost!")
                 self._restartCommand()
             return
