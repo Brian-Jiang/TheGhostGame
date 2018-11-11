@@ -174,7 +174,7 @@ class GameBoard:
         
         button_frame = tkinter.Frame(master = self._dialog, background = '#F06824')
         button_frame.grid(
-            row = 0, column = 2, padx = 20, pady = 20,
+            row = 0, column = 2, padx = 8, pady = 20,
             sticky = tkinter.E+tkinter.N
         )
 
@@ -234,7 +234,7 @@ class GameBoard:
         # ghost_l.image = self.g_image
         # ghost_l.pack()
         ghost_l.grid(
-            row=2, column=0, columnspan=3, padx=20, pady=20,
+            row=2, column=0, columnspan=3, padx=8, pady=20,
         )
         # ghost_l.place(x=0, y=0, relwidth=1, relheight=1)
 
