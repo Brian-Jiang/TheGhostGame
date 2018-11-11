@@ -59,7 +59,7 @@ class GameBoard:
         self._dialog.rowconfigure(5, weight = 1)
         self._dialog.columnconfigure(1, weight = 1)
         self._dialog.attributes("-topmost", True)
-
+        self._dialog.resizable(False,False)
     def _easyCommand(self):
         self._dialog.destroy()
         self._dialog = tkinter.Tk()
