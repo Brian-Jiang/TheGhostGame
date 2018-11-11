@@ -1,5 +1,6 @@
 import tkinter
 from tkinter import *
+from tkinter import messagebox
 from PIL import Image, ImageTk
 from controller import *
 DEFAULT_FONT = ('Herculanum', 24)
@@ -124,7 +125,7 @@ class GameBoard:
             self.g_score.set(f'Ghost {self.control.AIScore}')
             self.vocb = ''
             if self.control.AIScore >= 5:
-                tkinter.messagebox.showifno("Ghost Win", "Winner is the Ghost!")
+                tkinter.messagebox.showinfo("Ghost Win", "Winner is the Ghost!")
                 self._restartCommand()
             return
         if check_complete_word(self.vocb, self.control.word_bank) and len(self.vocb) >= 4:
@@ -132,7 +133,7 @@ class GameBoard:
             self.g_score.set(f'Ghost {self.control.AIScore}')
             self.vocb = ''
             if self.control.AIScore >= 5:
-                tkinter.messagebox.showifno("Ghost Win", "Winner is the Ghost!")
+                tkinter.messagebox.showinfo("Ghost Win", "Winner is the Ghost!")
                 self._restartCommand()
             return
         self.canvas.text = self.canvas.create_text(250, 70, font=('Herculanum', 40), anchor='w', text= self.vocb)
@@ -143,7 +144,7 @@ class GameBoard:
             self.g_score.set(f'Ghost {self.control.AIScore}')
             self.vocb = ''
             if self.control.AIScore >= 5:
-                tkinter.messagebox.showifno("Ghost Win", "Winner is the Ghost!")
+                tkinter.messagebox.showinfo("Ghost Win", "Winner is the Ghost!")
                 self._restartCommand()
             return
         else:
@@ -155,7 +156,7 @@ class GameBoard:
                 self.h_score.set(f'User {self.control.UserScore}')
                 self.vocb = ''
                 if self.control.UserScore >= 5:
-                    tkinter.messagebox.showifno("You Win", "You are the Winner!")  
+                    messagebox.showinfo("You Win", "You are the Winner!")
                     self._restartCommand()  
                 return
             if check_complete_word(self.vocb, self.control.word_bank) and len(self.vocb) >= 4:
@@ -163,7 +164,7 @@ class GameBoard:
                 self.h_score.set(f'User {self.control.UserScore}')
                 self.vocb = ''
                 if self.control.UserScore >= 5:
-                    tkinter.messagebox.showifno("You Win", "You are the Winner!")
+                    messagebox.showinfo("You Win", "You are the Winner!")
                     self._restartCommand()
                      
                 return
