@@ -5,7 +5,6 @@ from PIL import Image, ImageTk
 from controller import *
 DEFAULT_FONT = ('Herculanum', 24)
 from time import sleep
-
 class GameBoard:
     def __init__(self):
         self._dialog = tkinter.Tk()
@@ -117,6 +116,8 @@ class GameBoard:
         pass
 
     def get_key(self, event):
+        if event.char not in 'qazwsxedcrfvtgbyhnujmikolp':
+            return
         self.canvas.delete(tkinter.ALL)
         self.vocb += event.char
         self.canvas.text = self.canvas.create_text(250, 70, font=('Herculanum', 40), anchor='w', text= self.vocb)
