@@ -143,11 +143,13 @@ class GameBoard:
             master = self._dialog, width = 500, height = 500,
             background = 'orange',
         )
+    
         canvas.grid(
             row = 1 , column = 0,
             sticky = tkinter.W + tkinter.E + tkinter.N + tkinter.S
 
         )
+        self._canvas.bind("<Configure>", self._on_canvas_revized)
         score_board = tkinter.LabelFrame(
             master = self._dialog
         )
@@ -170,7 +172,6 @@ class GameBoard:
             row = 1, column = 0, columnspan = 3, padx = 20, pady = 20,
         )
 
-
         
         
         self._dialog.rowconfigure(5, weight = 1)
@@ -182,6 +183,10 @@ class GameBoard:
     def _restartCommand(self):
         self._dialog.destroy()
         self.__init__()
+
+    def _on_canvas_revized(self):
+        pass
+
 
 if __name__ == '__main__':
     board = GameBoard()
