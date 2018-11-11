@@ -19,7 +19,7 @@ class controller:
 
 
     def turn(self, word):#take a word
-        time.sleep(1)
+        time.sleep(2)
         if self.ai.challenge(word):
             return '_'
         else:

@@ -3,7 +3,7 @@ from tkinter import *
 from PIL import Image, ImageTk
 from controller import *
 DEFAULT_FONT = ('Herculanum', 24)
-
+from time import sleep
 
 class GameBoard:
     def __init__(self):
@@ -123,14 +123,17 @@ class GameBoard:
         result = self.control.turn(self.vocb)
         if result == '_':
             self.control.AIScore += 1
+            self.score_G(text = f"Ghost {self.control.AIScore}" )
             self.vocb = ''
             return
         else:
             self.vocb+=result
             self.canvas.delete(tkinter.ALL)
             self.canvas.text = self.canvas.create_text(20, 30, text= self.vocb)
+            sleep(2)
             if check_complete_word(self.vocb, self.control.word_bank):
                 self.control.UserScore += 1
+                self.score_H(text = f"Human {self.control.UserScore}" )
                 self.vocb = ''
 
 
@@ -189,18 +192,18 @@ class GameBoard:
             row = 0 , column = 0, padx = 20, pady = 20,
             sticky = tkinter.W+tkinter.N
         )
-        score_H = tkinter.Label(
+        self.score_H = tkinter.Label(
             master = score_board, text = "Human 0",
             font = DEFAULT_FONT, background = '#F16F29',
             )
-        score_H.grid(
+        self.score_H.grid(
             row = 0, column = 0, columnspan = 3, padx = 20, pady = 20,
         )
-        score_G = tkinter.Label(
+        self.score_G = tkinter.Label(
             master = score_board, text = "Ghost 0",
             font = DEFAULT_FONT, background = '#F16F29'
             )
-        score_G.grid(
+        self.score_G.grid(
             row = 1, column = 0, columnspan = 3, padx = 20, pady = 20,
         )
         self.g_image = Image.open("ghost_picture.jpg")
