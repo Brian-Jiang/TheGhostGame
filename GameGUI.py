@@ -139,8 +139,10 @@ class GameBoard:
 
     def startGame(self, mode:int): #E3, M4, H5
         self.control = controller(mode)
-        self.g_score = f'Ghost {self.control.AIScore}'
-        self.h_score=f'Ghost {self.control.UserScore}'
+        self.g_score = tkinter.StringVar()
+        self.h_score = tkinter.StringVar()
+        self.g_score.set(f'Ghost {self.control.AIScore}')
+        self.h_score.set(f'Ghost {self.control.UserScore}')
         self.vocb = ''
         self._title = tkinter.Label(
             master = self._dialog, text = "Ghost Game",
