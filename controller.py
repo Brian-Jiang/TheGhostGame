@@ -9,7 +9,7 @@ alpha = 'qazwsxedcrfvtgbyhnujmikolp'
 
 class controller:
 
-    def __int__(self, mode):
+    def __init__(self, mode):
         self.word_bank = get_word_bank()
         self.game = GhostGame(self.word_bank)
         self.ai = AI(mode, alpha, self.word_bank)
