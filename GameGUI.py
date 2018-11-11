@@ -123,15 +123,11 @@ class GameBoard:
             self.control.AIScore += 1
             self.g_score.set(f'Ghost {self.control.AIScore}')
             self.vocb = ''
-            sleep(2)
-            self.canvas.delete(tkinter.ALL)
             return
         if check_complete_word(self.vocb, self.control.word_bank) and len(self.vocb) >= 4:
             self.control.AIScore += 1
             self.g_score.set(f'Ghost {self.control.AIScore}')
             self.vocb = ''
-            sleep(2)
-            self.canvas.delete(tkinter.ALL)
             return
         self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
 
@@ -140,27 +136,21 @@ class GameBoard:
             self.control.AIScore += 1
             self.g_score.set(f'Ghost {self.control.AIScore}')
             self.vocb = ''
-            sleep(2)
-            self.canvas.delete(tkinter.ALL)
             return
         else:
             self.vocb+=result
             self.canvas.delete(tkinter.ALL)
             self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
-            sleep(2)
+            sleep(1)
             if not find_prefix(self.vocb, self.control.word_bank):
                 self.control.UserScore += 1
                 self.h_score.set(f'User {self.control.UserScore}')
                 self.vocb = ''
-                sleep(2)
-                self.canvas.delete(tkinter.ALL)
                 return
             if check_complete_word(self.vocb, self.control.word_bank) and len(self.vocb) >= 4:
                 self.control.UserScore += 1
                 self.h_score.set(f'User {self.control.UserScore}')
                 self.vocb = ''
-                sleep(2)
-                self.canvas.delete(tkinter.ALL)
                 return
             
 
