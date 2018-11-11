@@ -59,7 +59,7 @@ class GameBoard:
         self._dialog.rowconfigure(5, weight = 1)
         self._dialog.columnconfigure(1, weight = 1)
         self._dialog.attributes("-topmost", True)
-
+        self._dialog.resizable(False,False)
     def _easyCommand(self):
         self._dialog.destroy()
         self._dialog = tkinter.Tk()
@@ -118,6 +118,12 @@ class GameBoard:
     def get_key(self, event):
         self.canvas.delete(tkinter.ALL)
         self.vocb += event.char
+        self.canvas.text = self.canvas.create_text(20, 30, text= self.vocb)
+        if (check_complete_word(self.vocb, self.control.word_bank) and find_prefix(self.vocb, self.control.word_bank)) or !(find_prefix(self.vocb, self.control.word_bank)):
+            self.control.AIScore += 1
+            self.g_score.set(f'Ghost {self.control.AIScore}')
+            self.vocb = ''
+            return
         self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
 
         result = self.control.turn(self.vocb)
@@ -131,10 +137,11 @@ class GameBoard:
             self.canvas.delete(tkinter.ALL)
             self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
             sleep(2)
-            if check_complete_word(self.vocb, self.control.word_bank):
+            if (check_complete_word(self.vocb, self.control.word_bank) and find_prefix(self.vocb, self.control.word_bank)) or !(find_prefix(self.vocb, self.control.word_bank)):
                 self.control.UserScore += 1
                 self.h_score.set(f'User {self.control.UserScore}')
                 self.vocb = ''
+                return
 
 
     def startGame(self, mode:int): #E3, M4, H5
