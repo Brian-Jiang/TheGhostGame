@@ -149,7 +149,7 @@ class GameBoard:
             sticky = tkinter.W + tkinter.E + tkinter.N + tkinter.S
 
         )
-        self._canvas.bind("<Configure>", self._on_canvas_revized)
+        canvas.bind("<Configure>", self._on_canvas_revized)
         score_board = tkinter.LabelFrame(
             master = self._dialog
         )
