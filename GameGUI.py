@@ -119,7 +119,7 @@ class GameBoard:
         self.canvas.delete(tkinter.ALL)
         self.vocb += event.char
         self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
-        if (check_complete_word(self.vocb, self.control.word_bank) and find_prefix(self.vocb, self.control.word_bank)) or not (find_prefix(self.vocb, self.control.word_bank)):
+        if check_complete_word(self.vocb, self.control.word_bank) or not find_prefix(self.vocb, self.control.word_bank):
             self.control.AIScore += 1
             self.g_score.set(f'Ghost {self.control.AIScore}')
             self.vocb = ''
@@ -137,7 +137,7 @@ class GameBoard:
             self.canvas.delete(tkinter.ALL)
             self.canvas.text = self.canvas.create_text(250, 70, anchor='w', text= self.vocb)
             sleep(2)
-            if (check_complete_word(self.vocb, self.control.word_bank) and find_prefix(self.vocb, self.control.word_bank)) or not (find_prefix(self.vocb, self.control.word_bank)):
+            if check_complete_word(self.vocb, self.control.word_bank) or not find_prefix(self.vocb, self.control.word_bank):
                 self.control.UserScore += 1
                 self.h_score.set(f'User {self.control.UserScore}')
                 self.vocb = ''
