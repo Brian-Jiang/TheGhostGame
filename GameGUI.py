@@ -126,9 +126,12 @@ class GameBoard:
             self.vocb = ''
             return
         else:
+            self.vocb+=result
             self.canvas.delete(tkinter.ALL)
             self.canvas.text = self.canvas.create_text(20, 30, text= self.vocb)
-            return event.char
+            if check_complete_word(self.vocb, self.control.word_bank):
+                self.control.UserScore += 1
+                self.vocb = ''
 
 
     def startGame(self, mode:int): #E3, M4, H5

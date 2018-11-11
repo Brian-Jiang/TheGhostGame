@@ -13,15 +13,15 @@ class controller:
         self.word_bank = get_word_bank()
         self.game = GhostGame(self.word_bank)
         self.ai = AI(mode, alpha, self.word_bank)
-        self.userScore = self.game.score[0]
-        self.AIScore = self.game.score[1]
+        self.userScore = 0
+        self.AIScore = 0
 
 
 
-    def func(self, word):#take a word
-        time.sleep(1)
-        if self.ai.challenge(word):
+    def turn(self, word):#take a word
+        if check_complete_word(word, self.word_bank):
             return '_'
         else:
+            time.sleep(1)
             result = self.ai.return_word(word)
             return result
